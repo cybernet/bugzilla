@@ -13,24 +13,10 @@ machine:
     CIRCLE_ENV: test
 
 
-## Customize checkout
-checkout:
-  post:
-    - git submodule sync
-    - git submodule update --init # use submodules
-
 ## Customize dependencies
 dependencies:
   pre:
-    - sudo apt-get update; sudo apt-get install nginx
+    - sudo apt-get update -qq; sudo apt-get install nginx
     - cat /etc/nginx/nginx.conf
     - wget https://ftp.mozilla.org/pub/mozilla.org/webtools/bugzilla-4.4.9.tar.gz && tar zxvf bugzilla-4.4.9.tar.gz
     - cd bugzilla-4.4.9 && ./checksetup.pl
-
-
-## Customize test commands
-test:
-  post:
-    - ./travis/run.sh:
-        background: false
-    - sleep 5
