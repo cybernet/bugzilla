@@ -22,3 +22,6 @@ dependencies:
     - cd /etc/nginx && wget -N https://raw.githubusercontent.com/cybernet/linux/trusty/etc/nginx/nginx.conf
     - service nginx restart
     - ifconfig eth0 | grep inet | awk '{ print $2 }'
+
+  cache_directories:
+    - bugzilla-4.4.9
