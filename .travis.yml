@@ -1,0 +1,10 @@
+language: perl
+perl:
+  - "5.20"
+  - "5.18"
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq mysql-server nginx
+
+script: "./travis/run.sh"
