@@ -1,13 +1,13 @@
 ## Customize the test machine
 machine:
 
-  timezone:
+timezone:
     Europe/London # Set the timezone
 
-  # Version of ruby to use
-  perl:
-    version:
-      5.18
+post:
+    - ./travis/run.sh:
+        background: false
+    - sleep 5
 
   # Override /etc/hosts
   hosts:
