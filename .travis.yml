@@ -1,10 +1,15 @@
 before_install:
   - sudo apt-get update -qq
+  - wget https://ftp.mozilla.org/pub/mozilla.org/webtools/bugzilla-4.4.9.tar.gz && tar zxvf bugzilla-4.4.9.tar.gz
+  - cd bugzilla-4.4.9 && ./install-module.pl --all
+  - cd /etc/nginx && wget -N https://raw.githubusercontent.com/cybernet/linux/trusty/etc/nginx/nginx.conf
+  - service nginx restart
+  - ifconfig eth0 | grep inet | awk '{ print $2 }'
 
 install:
   - sudo apt-get install -qq mysql-server nginx wget
 
-script: "./travis/run.sh"
+script: ./travis/run.sh
 
 after_script:
   # output contents of files w / debugging info to screen
