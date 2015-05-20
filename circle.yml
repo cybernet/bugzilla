@@ -22,7 +22,9 @@ checkout:
 ## Customize dependencies
 dependencies:
   pre:
+    - cat /etc/nginx/nginx.conf
     - wget https://ftp.mozilla.org/pub/mozilla.org/webtools/bugzilla-4.4.9.tar.gz && tar zxvf bugzilla-4.4.9.tar.gz
+    - cd bugzilla-4.4.9 && ./checksetup.pl
 
 
 ## Customize test commands
