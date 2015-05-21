@@ -19,7 +19,7 @@ dependencies:
     - sudo apt-get update -qq; sudo apt-get install nginx
     - wget https://ftp.mozilla.org/pub/mozilla.org/webtools/bugzilla-4.4.9.tar.gz && tar zxvf bugzilla-4.4.9.tar.gz
     - cd bugzilla-4.4.9 && ./install-module.pl --all
-    - cd /etc/nginx && wget -N https://raw.githubusercontent.com/cybernet/linux/trusty/etc/nginx/nginx.conf
+    - cd /etc/nginx && sudo wget -N https://raw.githubusercontent.com/cybernet/linux/trusty/etc/nginx/nginx.conf
     - service nginx restart
     - ifconfig eth0 | grep inet | awk '{ print $2 }'
 
